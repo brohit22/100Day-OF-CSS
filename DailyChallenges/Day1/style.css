@@ -1,27 +1,103 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
 
-/* use only the available space inside the 400x400 frame*/
-.frame {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 400px;
-  height: 400px;
-  margin-top: -200px;
-  margin-left: -200px;
-  border-radius: 2px;
-  box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  background: #fff;
-  color: #333;
-  font-family: "Open Sans", Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --darkblue: #4441a2;
+  --lightblue: #4ec3c9;
+  --white: #fff;
 }
 
-.center {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  color: var(--white);
+  background: linear-gradient(
+    to bottom left,
+    var(--darkblue),
+    var(--lightblue)
+  );
+}
+
+.number {
+  position: relative;
+  display: flex;
+  margin-bottom: 4px;
+}
+
+.one {
+  width: 24px;
+  height: 100px;
+  border-radius: 4px;
+  background: white;
+  transform: translateX(15px);
+  box-shadow: 0px 0px 20px #00000030;
+  z-index: 6;
+}
+
+.one-slant {
+  width: 24px;
+  height: 50px;
+  border-radius: 4px;
+  background: white;
+  transform: rotate(45deg);
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: -0.5px;
+  left: -2px;
+}
+
+.zero {
+  width: 100px;
+  height: 100px;
+  border: 24px solid white;
+  border-radius: 50%;
+}
+
+.zero-one {
+  transform: translateX(10px);
+  z-index: 4;
+  box-shadow: 0px 0px 20px #00000030;
+}
+.zero-two {
+  box-shadow: 0px 0px 20px #00000030;
+}
+
+.big {
+  font-size: 80px;
+  font-weight: bolder;
+  line-height: 60px;
+}
+
+.small {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  line-height: 20px;
+}
+
+.number {
+  animation: zoomIn 1s ease-in-out;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: translateX(80px);
+  }
 }
