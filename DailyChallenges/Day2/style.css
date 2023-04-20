@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.icon {
+  width: 400px;
+  height: 400px;
+  background: #3faf82;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 15px;
+  cursor: pointer;
+  box-shadow: 0 5px 20px #30000030;
+}
+
+.icon div {
+  width: 100px;
+  height: 10px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px #30000030;
+}
+
+.icon.active div:nth-child(2) {
+  transform: scale(0);
+  opacity: 0;
+}
+
+.icon.active div:nth-child(1) {
+  animation: bar1Anime 0.3s ease-in-out forwards;
+}
+
+@keyframes bar1Anime {
+  50% {
+    transform: translateY(24px);
+  }
+  100% {
+    transform: translateY(24px) rotateZ(45deg);
+  }
+}
+
+.icon.active div:nth-child(3) {
+  animation: bar2Anime 0.3s ease-in-out forwards;
+}
+
+@keyframes bar2Anime {
+  50% {
+    transform: translateY(-24px);
+  }
+  100% {
+    transform: translateY(-24px) rotateZ(135deg);
+  }
+}
+
+/* Now we will reverse the animation */
+.icon div:nth-child(1) {
+  animation: bar1revAnim 0.3s ease-in-out;
+}
+@keyframes bar1revAnim {
+  0% {
+    transform: translateY(24px) rotateZ(45deg);
+  }
+  50% {
+    transform: translateY(24px) rotateZ(0deg);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* As of now hiding other two bars for debuggind*/
+/* .menu div:nth-child(1),
+.menu div:nth-child(2) {
+  opacity: 0.2;
+} */
+
+.icon div:nth-child(3) {
+  animation: bar3revAnim 0.3s ease-in-out;
+}
+@keyframes bar3revAnim {
+  0% {
+    transform: translateY(-24px) rotateZ(135deg);
+  }
+  50% {
+    transform: translateY(-24px) rotateZ(0deg);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.icon.no-animation div {
+  animation: none;
+}
